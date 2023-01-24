@@ -1,24 +1,3 @@
-// const {obj,obj1}= require('./main');
-
-
-// console.log(obj1);
-
-// const http=require ('http');
-// http.createServer((req,res)=>{
-//     if(req.url==='/'){
-//         res.write('<h1 style="color:red";>Home Page</h1>');
-//         res.end();
-//     }else if(req.url==='/about'){
-//         res.write('<h1>About Page</h1>');
-//         res.end();
-//     }else{
-//         res.write('<h1>Route not found</h1>');
-//         res.end();
-//     }
-// }).listen(8000, function(){
-//     console.log("Server is UP!!!");
-// });
-
 const express = require('express')
 const app = express()
 const path=require ('path');

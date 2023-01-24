@@ -1,3 +1,5 @@
+// This file is not related to MVC - Please ignore this file
+
 var obj={
     name:"qwertty",
     age:12
