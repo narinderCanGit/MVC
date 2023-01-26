@@ -3,7 +3,10 @@ const app = express()
 const path=require ('path');
 const wiki = require ('./Router/wiki');
 const birds = require ('./Router/birds');
+const reqFilter = require ('./Middleware/ageMiddleware');
 app.set('view engine', 'ejs');
+
+app.use(reqFilter);
 
 app.use('/wiki', wiki);
 app.use('/birds', birds);
