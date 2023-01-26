@@ -3,5 +3,5 @@ exports.home=(req,res)=>{
 }
 
 exports.about=(req,res)=>{
-    res.render("home", {name:"Wiki About"});
+    res.render("about", {name:"Wiki About"});
 }

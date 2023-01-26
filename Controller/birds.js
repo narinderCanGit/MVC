@@ -3,5 +3,5 @@ exports.home=(req,res)=>{
 }
 
 exports.about=(req,res)=>{
-    res.render("home", {name:"Birds About"});
+    res.render("about", {name:"Birds About"});
 }
