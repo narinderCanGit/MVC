@@ -1,27 +1,29 @@
 const express = require('express')
+const mongoose = require('mongoose')
+
+const url = 'mongodb://localhost/AlienDB' 
+
 const app = express()
-const path=require ('path');
-const wiki = require ('./Router/wiki');
-const birds = require ('./Router/birds');
-const reqFilter = require ('./Middleware/ageMiddleware');
-app.set('view engine', 'ejs');
 
-app.use(reqFilter);
+mongoose.connect(url, {useNewUrlParser:true, useUnifiedTopology: true})
+const con = mongoose.connection
 
-app.use('/wiki', wiki);
-app.use('/birds', birds);
-app.get('/*', (req,res)=>{
-    res.send('<h1>Page Not Found!!</h1>');
+con.on('open', () => {
+    console.log('connected...')
 })
 
-// app.get('/',(req,res)=>{
-//     res.send("Welcome to Express");
-// });
-
-// app.get('/about', function(req,res){
-//     res.sendFile(path.join(__dirname+'/dummy.html'));
+// con.on('error',()=>{
+//     console.log("Error in connecting to the database");
 // })
 
-app.listen(8000,()=>{
-    console.log("Server is running on port 8000");
+app.use(express.json())
+
+const alienRouter = require('./router/aliens')
+app.use('/aliens',alienRouter)
+
+// 127.0.0.1:9000/aliens/about
+
+
+app.listen(8000, () => {
+    console.log('Server started on port')
 })
